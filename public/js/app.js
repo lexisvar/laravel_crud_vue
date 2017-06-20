@@ -11396,6 +11396,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, function (response) {
                 // error callback
             });
+        },
+        confirmDelete: function confirmDelete(cliente_id) {
+            var isConfirmDelete = confirm('¿Estás seguro que de sea eliminar este cliente?');
+            if (isConfirmDelete) {
+                alert('nice');
+            } else {
+                alert('false');
+            }
         }
     }
 });
@@ -41482,7 +41490,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('table', {
     staticClass: "table table-striped"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.clientes), function(cliente) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(cliente.cliente_id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_nombre))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_cedula))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_nit))]), _vm._v(" "), _vm._m(1, true)])
+    return _c('tr', [_c('td', [_vm._v(_vm._s(cliente.cliente_id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_nombre))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_cedula))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(cliente.cliente_nit))]), _vm._v(" "), _c('td', [_vm._m(1, true), _vm._v(" "), _c('button', {
+      staticClass: "btn btn-warning btn-xs btn-detail",
+      attrs: {
+        "id": "btn-delete"
+      },
+      on: {
+        "click": function($event) {
+          _vm.confirmDelete(cliente.cliente_id)
+        }
+      }
+    }, [_c('span', {
+      staticClass: "glyphicon glyphicon-trash"
+    })])])])
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_vm._v("Id")]), _vm._v(" "), _c('th', [_vm._v("Nombre")]), _vm._v(" "), _c('th', [_vm._v("Cédula")]), _vm._v(" "), _c('th', [_vm._v("Nit")]), _vm._v(" "), _c('th', [_c('button', {
@@ -41493,7 +41513,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Crear Cliente")])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('td', [_c('button', {
+  return _c('button', {
     staticClass: "btn btn-warning btn-xs btn-detail",
     attrs: {
       "id": "btn-edit",
@@ -41501,15 +41521,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-edit"
-  })]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-warning btn-xs btn-detail",
-    attrs: {
-      "id": "btn-delete",
-      "ng-click": "confirmDelete(cliente.cliente_id)"
-    }
-  }, [_c('span', {
-    staticClass: "glyphicon glyphicon-trash"
-  })])])
+  })])
 }]}
 module.exports.render._withStripped = true
 if (false) {

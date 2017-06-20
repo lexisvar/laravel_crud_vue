@@ -19,7 +19,7 @@
                     <button id="btn-edit" class="btn btn-warning btn-xs btn-detail" ng-click="toggle('edit', cliente.cliente_id)">
                         <span class="glyphicon glyphicon-edit"></span></button>
                     </button>
-                    <button id="btn-delete" class="btn btn-warning btn-xs btn-detail" ng-click="confirmDelete(cliente.cliente_id)">
+                    <button id="btn-delete" class="btn btn-warning btn-xs btn-detail" v-on:click="confirmDelete(cliente.cliente_id)">
                         <span class="glyphicon glyphicon-trash"></span></button>
                     </button>
                 </td>
@@ -49,6 +49,19 @@
                 }, response => {
                     // error callback
                 });
+            },
+            confirmDelete : function (cliente_id) {
+                var isConfirmDelete = confirm('¿Estás seguro que de sea eliminar este cliente?');
+                if(isConfirmDelete){
+                    this.$http.delete('/api/cliente/' ).then(response => {
+                        this.clientes = response.data.clientes;
+
+                    }, response => {
+                        // error callback
+                    });
+                }else{
+                    return false;
+                }
             },
         }
     }
