@@ -15,7 +15,10 @@ class ClienteController extends Controller
     public function index($cliente_id = null)
     {
         if($cliente_id == null){
-            return Cliente::orderBy('cliente_id','asc')->get();
+            $clientes = Cliente::orderBy('cliente_id','asc')->get();
+            return response()->json([
+                'clientes' => $clientes,
+            ]);
         }else{
             return $this->show($cliente_id);
         }
